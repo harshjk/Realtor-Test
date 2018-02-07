@@ -22,18 +22,34 @@ public class ImprovedAnagramFinder {
 
 	private static Scanner scan;
 
+	/**
+	 * This method convert into lower case sorted string by character of String
+	 * 
+	 * @param str:
+	 *            Input String
+	 * @return: Lower case sorted String
+	 */
 	public static String convertToBaseString(String str) {
 		char[] stringCharArray = str.toLowerCase().toCharArray();
 		Arrays.sort(stringCharArray);
 		return new String(stringCharArray);
 	}
 
+	/**
+	 * This method is create dictionary in HashMap data structure with key is base
+	 * string and value is the base string anagram sting list
+	 * 
+	 * @param file:
+	 *            This is dictionary file location
+	 * @return HashMap which contains dictionary
+	 */
 	public static HashMap<String, ArrayList<String>> readDictionary(String file) {
 
 		HashMap<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();
 		List<String> words = Collections.emptyList();
 
 		try {
+			// Read all the contains of files using Java Neo Package
 			words = Files.readAllLines(Paths.get(file), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println("There is some problem in reading File");
@@ -41,11 +57,14 @@ public class ImprovedAnagramFinder {
 			System.exit(0);
 		}
 		for (String word : words) {
+			// Check if base string of word is available in HashMap as a key or not
 			if (dictionary.containsKey(convertToBaseString(word))) {
+				// If it contains then update the ArrayList value of HashMap
 				ArrayList<String> anagrams = dictionary.get(convertToBaseString(word));
 				anagrams.add(word);
 				dictionary.put(convertToBaseString(word), anagrams);
 			} else {
+				// If it not contains in the HashMap then it will create entry
 				ArrayList<String> anagrams = new ArrayList<String>();
 				anagrams.add(word);
 				dictionary.put(convertToBaseString(word), anagrams);
@@ -64,10 +83,12 @@ public class ImprovedAnagramFinder {
 
 		// Loading Dictionary
 		long dictionaryReadingStartTime = System.currentTimeMillis();
+
 		HashMap<String, ArrayList<String>> dictionary = readDictionary(args[0]);
+
 		long dictionaryReadingEndTime = System.currentTimeMillis();
 		long dictionaryReadingTime = dictionaryReadingEndTime - dictionaryReadingStartTime;
-		
+
 		System.out.println("Welcome to the Anagram Finder");
 		System.out.println("-----------------------------");
 		System.out.println("Dictionary will be loaded in " + dictionaryReadingTime + " ms");
