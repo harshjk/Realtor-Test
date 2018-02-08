@@ -5,7 +5,7 @@ This project contains 2 java files:
 1. AnagramFinder.java
 2. ImprovedAnagramFinder.java
 
-##AnagramFinder.java
+## AnagramFinder.java
 This java program is efficient in terms of space complexity because this program is not store whole dictionary in to RAM.
 
 Everytime it will check dictionary file while program find anagram, It has two major benifits:
@@ -16,7 +16,7 @@ Everytime it will check dictionary file while program find anagram, It has two m
 - Program convert input string to lower case character based sorted string, for example: Harsh will convert into ahhrs
 - It read file line by line and each line is also converted into lower case character based sorted string then it will compairs with lower case character based sorted input string
 
-##ImprovedAnagramFinder.java
+## ImprovedAnagramFinder.java
 This java program is efficient in terms of time complexity because this program is store whole dictionary in meaningful way using key-value pair data structure HashMap
 
 Everytime it will not check dictionary file, but it will check HashMap based dictionary, It has one major benifits:
@@ -63,7 +63,7 @@ Everytime it will not check dictionary file, but it will check HashMap based dic
 - After that, lower case character based sorted input string use as key of  dictionary HashMap
 - If HashMap find the key then it will return the anagram word array list.
 
-##Author
+## Author
 
 #### [Harsh Kevadia](https://www.linkedin.com/in/kevadiaharsh/)
 
