@@ -27,7 +27,8 @@ Everytime it will not check dictionary file, but it will check HashMap based dic
 - After that, It will checks with key of HashMap, if key is already exist then value of the dictionary HashMap ArrayList of String updated.
 - If lower case character based sorted string is not exist in HashMap key then it will add into HashMap with word as an value of this HashMap.
 
-`	public static HashMap<String, ArrayList<String>> readDictionary(String file) {
+`	
+	public static HashMap<String, ArrayList<String>> readDictionary(String file) {
 
 		HashMap<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();
 		List<String> words = Collections.emptyList();
@@ -55,7 +56,8 @@ Everytime it will not check dictionary file, but it will check HashMap based dic
 			}
 		}
 		return dictionary;
-	}`
+	}
+`
 
 ### How program works:
 
